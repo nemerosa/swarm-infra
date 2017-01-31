@@ -1,0 +1,10 @@
+# CI environment for Nemerosa
+version: "3"
+
+services:
+   # TODO Jenkins
+   # TODO GitLab
+
+networks:
+   proxy:
+      external: true

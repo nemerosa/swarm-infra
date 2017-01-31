@@ -1,0 +1,30 @@
+# Ontrack environment for Nemerosa
+version: "3"
+
+services:
+   # TODO InfluxDB
+   # TODO Grafana
+   # TODO Vault
+   # Postgres
+   postgres:
+      image: "postgres:9.6.1-alpine"
+      networks:
+         - storage
+      environment:
+         POSTGRES_DB      : ontrack
+         POSTGRES_USER    : ontrack
+         # TODO Use secrets
+         POSTGRES_PASSWORD: ontrack
+   # Ontrack
+   ontrack:
+      image: "nemerosa/ontrack:3.0-beta.18"
+      networks:
+         - proxy
+         - storage
+      environment:
+         SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres/ontrack"
+
+networks:
+   storage:
+   proxy:
+      external: true

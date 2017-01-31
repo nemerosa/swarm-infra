@@ -1,2 +1,3 @@
-# swarm-infra
-Infrastructure definition for Nemerosa
+# Swarm Infra
+
+Infrastructure definition for Nemerosa.
