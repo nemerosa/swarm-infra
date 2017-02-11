@@ -82,5 +82,5 @@ The script can also be used to run a command remotely:
 
 [source,bash]
 ----
-./swarm-ssh.sh docker node ls
+./swarm-ssh.sh docker service ls
 ----
