@@ -5,3 +5,25 @@
 provider "digitalocean" {
   token = "${var.do_token}"
 }
+
+##################################################################################################################
+# Proxy network
+##################################################################################################################
+
+resource "null_resource" "swarm_network_proxy" {
+   connection {
+      host = "${module.do_swarm_domain.swarm_ip}"
+      user = "${var.do_user}"
+      private_key = "${file(var.do_ssh_key_private)}"
+      agent = false
+   }
+   provisioner "remote-exec" {
+      inline = [
+         "docker network create -d overlay proxy"
+      ]
+   }
+}
+
+##################################################################################################################
+# Proxy services
+##################################################################################################################
