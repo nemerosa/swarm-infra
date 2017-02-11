@@ -17,14 +17,22 @@ services:
          POSTGRES_PASSWORD: ontrack
    # Ontrack
    ontrack:
-      image: "nemerosa/ontrack:3.0-beta.18"
+      image: "nemerosa/ontrack:3.0-beta.23"
       networks:
          - proxy
          - storage
+      deploy:
+         labels:
+            - com.df.notify=true
+            - com.df.distribute=true
+            - com.df.serviceDomain=${ONTRACK_DOMAIN_NAME}
+            - com.df.servicePath=/
+            - com.df.port=8080
       environment:
          SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres/ontrack"
 
 networks:
    storage:
+      driver: overlay
    proxy:
       external: true
