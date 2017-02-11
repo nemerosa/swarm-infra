@@ -3,6 +3,7 @@ Nemerosa Infrastructure definition
 
 :toc:
 
+[[configuration]]
 == Configuration
 
 Create a `terraform.tfvars` file with following values:
@@ -19,6 +20,7 @@ swarm_agent_count = 2
 
 dns_domain = "nemerosa.net"
 dns_domain_names = [
+   "swarm.ci",
    "ontrack.ci"
 ]
 ----
@@ -33,6 +35,7 @@ ssh-keygen -t rsa -f ./do-key -N ""
 This creates a key pair: `do-key` (private key) and
 `do-key.pub` (public key).
 
+[[procedure]]
 == Procedure
 
 Get all Terraform modules:
@@ -40,4 +43,24 @@ Get all Terraform modules:
 [source,bash]
 ----
 terraform get
+----
+
+Configure any variable you need in the `terraform.tfvars` file (see
+<<configuration,above>>), according to the definitions found in
+the `vars.tf` file.
+
+When done, create the Swarm by running:
+
+[source,bash]
+----
+terraform apply
+----
+
+After a new minutes, the Docker Swarm is available, according to
+the settings above, at `swarm.ci.nemerosa.net` or, to use its IP
+directly, at:
+
+[source,bash]
+----
+terraform output -no-color swarm_ip
 ----
