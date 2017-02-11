@@ -56,14 +56,23 @@ When done, create the Swarm by running:
 terraform apply
 ----
 
-After a new minutes, the Docker Swarm is available, according to
-the settings above, at `swarm.ci.nemerosa.net` or, to use its IP
-directly, at:
+After a new minutes, the Docker Swarm stacks are deployed and ready.
 
-[source,bash]
-----
-terraform output -no-color swarm_ip
-----
+[[stacks]]
+## Stacks
+
+Following stacks are available:
+
+|===
+| Stack | URL | Notes
+
+| http://nemerosa.github.io/ontrack/[Ontrack]
+| http://ontrack.ci.nemerosa.net
+| (1)
+|===
+
+(1) This stack is not redeployable since it needs some shared storage
+    between the nodes.
 
 [[appendixes]]
 ## Appendixes

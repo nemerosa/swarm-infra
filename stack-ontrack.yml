@@ -7,7 +7,7 @@ services:
    # TODO Vault
    # Postgres
    postgres:
-      image: "postgres:9.6.1-alpine"
+      image: "postgres:9.6.2-alpine"
       networks:
          - storage
       environment:

@@ -22,3 +22,8 @@ variable "stack_remote_dir" {
    description = "Path to the remote directory where to store the stack compose files"
    default = "/stacks"
 }
+
+variable "stack_environment" {
+   description = "List of environment variables: NAME=VALUE"
+   default = []
+}

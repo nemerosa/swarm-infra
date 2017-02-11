@@ -36,3 +36,19 @@ module "stack_proxy" {
    stack_name = "proxy"
    stack_compose_file = "stack-proxy.yml"
 }
+
+##################################################################################################################
+# Ontrack services
+##################################################################################################################
+
+module "stack_ontrack" {
+   source = "./do-swarm-stack"
+   swarm_ip = "${module.do_swarm_domain.swarm_ip}"
+   swarm_ssh_user = "${var.do_user}"
+   swarm_ssh_key_private = "${var.do_ssh_key_private}"
+   stack_environment = [
+      "ONTRACK_DOMAIN_NAME=ontrack.ci.${var.dns_domain}"
+   ]
+   stack_name = "ontrack"
+   stack_compose_file = "stack-ontrack.yml"
+}

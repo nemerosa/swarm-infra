@@ -16,7 +16,7 @@ resource "null_resource" "swarm_stack" {
    }
    provisioner "remote-exec" {
       inline = [
-         "docker stack deploy --compose-file ${var.stack_remote_dir}/${var.stack_name}.yml ${var.stack_name}"
+         "${join(" ", var.stack_environment)} docker stack deploy --compose-file ${var.stack_remote_dir}/${var.stack_name}.yml ${var.stack_name}"
       ]
    }
 }
