@@ -1,0 +1,43 @@
+Nemerosa Infrastructure definition
+==================================
+
+:toc:
+
+== Configuration
+
+Create a `terraform.tfvars` file with following values:
+
+[source]
+----
+do_token = "your-api-token"
+
+# docker-1.13.1-experimental
+do_image = "22776331"
+
+swarm_master_count = 1
+swarm_agent_count = 2
+
+dns_domain = "nemerosa.net"
+dns_domain_names = [
+   "ontrack.ci"
+]
+----
+
+Generate a SSH key:
+
+[source,bash]
+----
+ssh-keygen -t rsa -f ./do-key -N ""
+----
+
+This creates a key pair: `do-key` (private key) and
+`do-key.pub` (public key).
+
+== Procedure
+
+Get all Terraform modules:
+
+[source,bash]
+----
+terraform get
+----

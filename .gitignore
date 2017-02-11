@@ -1,0 +1,14 @@
+# Digital Ocean key pairs and tokens
+/do-key
+/do-key.pub
+/*.token
+
+# Local environment settings
+/env.sh
+*.tfvars
+
+# Terraform state
+/terraform.tfstate*
+
+# Modules
+/.terraform
