@@ -49,8 +49,10 @@ variable "dns_domain" {
 variable "dns_domain_names" {
   description = "Names to register"
   default = [
-   "swarm.ci",
-   "ontrack.ci"
+    "swarm.ci",
+    "jenkins.ci",
+    "ontrack.ci",
+    "monitoring.ci"
   ]
 }
 

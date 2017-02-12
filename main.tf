@@ -48,8 +48,24 @@ module "stack_monitoring" {
    swarm_ssh_key_private = "${var.do_ssh_key_private}"
    stack_name = "monitoring"
    stack_compose_file = "stack-monitoring.yml"
+   swarm_environment = [
+      "MONITORING_DOMAIN_NAME=monitoring.ci.${var.dns_domain}"
+   ]
+}
+
+##################################################################################################################
+# Jenkins services
+##################################################################################################################
+
+module "stack_jenkins" {
+   source = "./do-swarm-stack"
+   swarm_ip = "${module.do_swarm_domain.swarm_ip}"
+   swarm_ssh_user = "${var.do_user}"
+   swarm_ssh_key_private = "${var.do_ssh_key_private}"
+   stack_name = "jenkins"
+   stack_compose_file = "stack-jenkins.yml"
    stack_environment = [
-      "SWARM_DOMAIN_NAME=swarm.ci.${var.dns_domain}"
+      "JENKINS_DOMAIN_NAME=jenkins.ci.${var.dns_domain}"
    ]
 }
 
