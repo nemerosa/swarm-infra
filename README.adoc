@@ -60,12 +60,20 @@ Following stacks are available:
 |===
 | Stack | URL | Notes
 
-| http://nemerosa.github.io/ontrack/[Ontrack]
-| http://ontrack.ci.nemerosa.net
+| https://docs.influxdata.com/influxdb/v1.2/[InfluxDB]
+| http://influxdb.ci.nemerosa.net
+| (1) (2)
+
+| http://grafana.org/[Grafana]
+| http://grafana.ci.nemerosa.net
 | (1)
 
-| https://docs.influxdata.com/influxdb/v1.2/[InfluxDB]
-| http://swarm.ci.nemerosa.net/influxdb (2)
+| https://jenkins.io/[Jenkins]
+| http://jenkins.ci.nemerosa.net
+| (1)
+
+| http://nemerosa.github.io/ontrack/[Ontrack]
+| http://ontrack.ci.nemerosa.net
 | (1)
 |===
 
