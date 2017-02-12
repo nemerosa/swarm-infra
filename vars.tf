@@ -52,7 +52,8 @@ variable "dns_domain_names" {
     "swarm.ci",
     "jenkins.ci",
     "ontrack.ci",
-    "monitoring.ci"
+    "monitoring.ci",
+    "grafana.ci"
   ]
 }
 
