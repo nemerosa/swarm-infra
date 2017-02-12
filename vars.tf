@@ -48,7 +48,10 @@ variable "dns_domain" {
 
 variable "dns_domain_names" {
   description = "Names to register"
-  default = ["swarm"]
+  default = [
+   "swarm.ci",
+   "ontrack.ci"
+  ]
 }
 
 ## Swarm setup

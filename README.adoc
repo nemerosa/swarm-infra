@@ -17,12 +17,6 @@ do_image = "22776331"
 
 swarm_master_count = 1
 swarm_agent_count = 2
-
-dns_domain = "nemerosa.net"
-dns_domain_names = [
-   "swarm.ci",
-   "ontrack.ci"
-]
 ----
 
 Generate a SSH key:
@@ -69,10 +63,21 @@ Following stacks are available:
 | http://nemerosa.github.io/ontrack/[Ontrack]
 | http://ontrack.ci.nemerosa.net
 | (1)
+
+| https://docs.influxdata.com/influxdb/v1.2/[InfluxDB]
+| http://swarm.ci.nemerosa.net/influxdb (2)
+| (1)
 |===
 
 (1) This stack is not redeployable since it needs some shared storage
     between the nodes.
+
+(2) The InfluxDB availability can be tested using:
+
+[source,bash]
+----
+curl -v http://swarm.ci.nemerosa.net/influxdb
+----
 
 [[appendixes]]
 ## Appendixes
@@ -93,3 +98,23 @@ The script can also be used to run a command remotely:
 ----
 ./swarm-ssh.sh docker service ls
 ----
+
+[[roadmap]]
+### Roadmap
+
+Non functional:
+
+- [ ] SSH proxy using Let's Encrypt
+- [ ] Logging services (ELK)
+- [ ] Grafana & Prometheus
+- [ ] File storage
+- [ ] Health checks & synchronizations
+
+Functional:
+
+- [ ] Jenkins
+- [ ] Artifactory
+- [ ] Ontrack default configuration
+- [ ] Vault & Ontrack integration (would remove need for file storage)
+- [ ] Jenkins default configuration
+- [ ] Artifactory default configuration

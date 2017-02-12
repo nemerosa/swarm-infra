@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+   # InfluxDB
+   influxdb:
+      image: influxdb:1.2.0-alpine
+      environment:
+         INFLUXDB_GRAPHITE_ENABLED: "true"
+      networks:
+         - proxy
+      deploy:
+         labels:
+            - com.df.notify=true
+            - com.df.distribute=true
+            - com.df.serviceDomain=${SWARM_DOMAIN_NAME}
+            - com.df.servicePath=/influxdb
+            # Administrative interface is deprecated and is therefore NOT exposed here
+            - com.df.port=8086
+   # TODO Prometheus
+   # TODO Grafana
+
+networks:
+   proxy:
+      external: true

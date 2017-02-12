@@ -38,6 +38,22 @@ module "stack_proxy" {
 }
 
 ##################################################################################################################
+# Monitoring services
+##################################################################################################################
+
+module "stack_monitoring" {
+   source = "./do-swarm-stack"
+   swarm_ip = "${module.do_swarm_domain.swarm_ip}"
+   swarm_ssh_user = "${var.do_user}"
+   swarm_ssh_key_private = "${var.do_ssh_key_private}"
+   stack_name = "monitoring"
+   stack_compose_file = "stack-monitoring.yml"
+   stack_environment = [
+      "SWARM_DOMAIN_NAME=swarm.ci.${var.dns_domain}"
+   ]
+}
+
+##################################################################################################################
 # Ontrack services
 ##################################################################################################################
 

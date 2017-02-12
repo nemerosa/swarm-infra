@@ -2,8 +2,6 @@
 version: "3"
 
 services:
-   # TODO InfluxDB
-   # TODO Grafana
    # TODO Vault
    # Postgres
    postgres:
