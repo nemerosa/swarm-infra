@@ -49,7 +49,8 @@ module "stack_monitoring" {
    stack_name = "monitoring"
    stack_compose_file = "stack-monitoring.yml"
    stack_environment = [
-      "MONITORING_DOMAIN_NAME=monitoring.ci.${var.dns_domain}"
+      "INFLUXDB_DOMAIN_NAME=influxdb.ci.${var.dns_domain}",
+      "GRAFANA_DOMAIN_NAME=grafana.ci.${var.dns_domain}",
    ]
 }
 
