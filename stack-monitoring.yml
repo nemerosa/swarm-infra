@@ -12,7 +12,7 @@ services:
          labels:
             - com.df.notify=true
             - com.df.distribute=true
-            - com.df.serviceDomain=${SWARM_DOMAIN_NAME}
+            - com.df.serviceDomain=${MONITORING_DOMAIN_NAME}
             - com.df.servicePath=/influxdb
             # Administrative interface is deprecated and is therefore NOT exposed here
             - com.df.port=8086

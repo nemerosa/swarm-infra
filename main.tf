@@ -48,7 +48,7 @@ module "stack_monitoring" {
    swarm_ssh_key_private = "${var.do_ssh_key_private}"
    stack_name = "monitoring"
    stack_compose_file = "stack-monitoring.yml"
-   swarm_environment = [
+   stack_environment = [
       "MONITORING_DOMAIN_NAME=monitoring.ci.${var.dns_domain}"
    ]
 }
