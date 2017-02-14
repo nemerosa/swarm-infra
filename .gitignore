@@ -12,3 +12,7 @@
 
 # Modules
 /.terraform
+
+# IDE
+/*.iml
+/.idea
