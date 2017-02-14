@@ -3,6 +3,11 @@ Nemerosa Infrastructure definition
 
 :toc:
 
+[[overview]]
+== Overview
+
+image:overview.png[Overview,400]
+
 [[configuration]]
 == Configuration
 

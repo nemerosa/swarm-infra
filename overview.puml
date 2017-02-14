@@ -1,0 +1,38 @@
+@startuml
+() "Client"
+cloud "Digital Ocean" {
+    [LoadBalancer]
+    node "Swarm" {
+        package "masters" {
+            node Master00 as Master0
+            node Master01 as Master1 {
+                [Proxy]
+            }
+            node Master02 as Master2
+        }
+        package "agents" {
+            node Agent00 as Agent0
+            node Agent01 as Agent1
+            node Agent02 as Agent2 {
+                [Application]
+            }
+            node Agent03 as Agent3
+        }
+    }
+    package "nemerosa.net" <<domain>> {
+        [xxx.ci] <<A record>> as XXXDnsEntry
+    }
+}
+
+Client --> XXXDnsEntry: https
+
+XXXDnsEntry --> LoadBalancer: https
+
+LoadBalancer --> Master0: http
+LoadBalancer --> Master1: http
+LoadBalancer --> Master2: http
+
+masters --> agents
+
+Proxy --> Application: http / path:port
+@enduml
